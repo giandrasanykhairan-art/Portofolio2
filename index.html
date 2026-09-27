@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Massachusetts Institute of Technology</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        font-family: 'Roboto Serif', serif !important;
+        margin: 0;
+        padding: 0;
+        background-color: #121212 !important;
+        color: #ffffff !important;
+      }
+
+      /* Container utama diset menjadi Grid 2 Kolom */
+      .main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Membagi layar jadi 2 kolom sama besar */
+        gap: 30px;
+        max-width: 1200px; /* Lebar maksimal dibatasi agar tidak terlalu melebar di monitor besar */
+        margin: 0 auto; /* Memposisikan seluruh konten ke tengah halaman */
+        padding: 40px 20px;
+        box-sizing: border-box;
+      }
+
+      /* Elemen yang butuh posisi di tengah & full-width dibikin membentang (span) 2 kolom */
+      .logo, .h1, .about-card, footer {
+        grid-column: 1 / -1; /* Membentang dari garis awal sampai akhir */
+        justify-self: center; /* Posisikan kontennya di tengah */
+      }
+
+      .logo {
+        max-width: 100px;
+        height: auto;
+      }
+
+      .h1 {
+        font-size: 2.2rem;
+        font-weight: 900;
+        text-align: center;
+        line-height: 1.2;
+        margin: 0 0 10px 0;
+      }
+
+      .Institute {
+        color: #a31f34;
+      }
+
+      /* Pengaturan Kartu Kiri & Kanan */
+      .card {
+        display: grid;
+        grid-template-columns: 160px 1fr; /* Gambar 160px, sisanya untuk teks */
+        align-items: start;
+        gap: 20px;
+        width: 100%;
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      .tile-image {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 6px;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .card-text, .paragraph {
+        line-height: 1.6;
+        font-size: 0.95rem;
+        color: #dddddd;
+        margin: 0;
+      }
+
+      /* Kartu About tetap lebar penuh di bawah */
+      .about-card {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+        background-color: #1e1e1e;
+        padding: 25px;
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      .text-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .card-description {
+        color: #dddddd;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      footer {
+        margin-top: 20px;
+        text-align: center;
+        color: #888888;
+      }
+
+      /* Responsif: Jika layar kecil (Tablet/HP), ubah kembali jadi 1 kolom bertumpuk */
+      @media (max-width: 900px) {
+        .main {
+          grid-template-columns: 1fr; /* Kembali jadi 1 kolom utama */
+        }
+        .card {
+          grid-template-columns: 180px 1fr; /* Ukuran gambar diperbesar sedikit */
+        }
+      }
+
+      @media (max-width: 600px) {
+        .card {
+          grid-template-columns: 1fr; /* Gambar dan teks bertumpuk di HP */
+          justify-items: center;
+          text-align: center;
+        }
+        .tile-image {
+          width: 100%;
+          max-width: 250px;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <img class="logo" src="./assets/MIT.webp" alt="MIT Logo" />
+      <h1 class="h1">Massachusetts <span class="Institute">Institute</span> <br />of Technology</h1>
+
+      <!-- Kartu ini akan otomatis masuk ke kolom kiri -->
+      <div class="left card">
+        <img class="tile-image" src="./assets/Campus.webp" alt="Campus" />
+        <div>
+          <h2 class="card-title">MIT Campus</h2>
+          <p class="card-text">
+            Located along the Charles River in Cambridge, Massachusetts, the 168-acre MIT campus seamlessly blends neoclassical landmark design with world-famous modern architecture, stretching from the iconic Great Dome at Killian Court to Frank Gehry’s deconstructivist Stata Center and Kendall Square's bustling tech hub.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kartu ini akan otomatis masuk ke kolom kanan -->
+      <div class="right card">
+        <img class="tile-image" src="./assets/Students.webp" alt="Students" />
+        <div>
+          <h2 class="card-title">Students</h2>
+          <p class="paragraph">
+            MIT students are intensely driven, collaborative problem-solvers who embrace a hands-on "Mind and Hand" philosophy across rigorous STEM and humanities programs. Representing over 130 countries, this diverse community relies heavily on teamwork to tackle coursework.
+          </p>
+        </div>
+      </div>
+      
+      <!-- Kartu ini akan membentang penuh di bawah keduanya -->
+      <div class="about-card">
+        <h2 class="text-title">About Campus</h2>
+        <p class="card-description">
+          Located at 77 Massachusetts Avenue, Cambridge, MA 02139, the Massachusetts Institute of Technology (MIT) spans a 168-acre urban campus stretching over a mile along the north bank of the Charles River, directly opposite Boston. Its iconic main buildings feature interconnected corridors—most notably the "Infinite Corridor"—centered around Killian Court and the recognizable Great Dome. World-renowned for its rigorous academic ecosystem, MIT is organized into five schools and one college, offering top-tier degree programs in Engineering, Computer Science, Physical Sciences, Architecture, Management (via the Sloan School of Management), and Biological Sciences.
+        </p>
+      </div>
+
+      <footer>
+        <p class="footer">Introduce About MIT</p>
+      </footer>
+    </div>
+  </body>
+</html>
